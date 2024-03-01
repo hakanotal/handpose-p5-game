@@ -15,7 +15,7 @@ function setup() {
   cnv = createCanvas(int(windowWidth * 0.9), int(windowHeight * 0.9));
   cnv.center('horizontal');
   noStroke();
-  textSize(36);
+  textSize(40);
   frameRate(20);
 
   video = createCapture(VIDEO);
@@ -34,7 +34,7 @@ function setup() {
   setupBorders();
   
   balls = new Group();
-  ball = new balls.Sprite(xSpot, ySpot, width * 0.05);
+  ball = new balls.Sprite(xSpot, ySpot, width * 0.04);
   balls.color = BALL_COLOR;
   world.gravity.y = 9;
 }
@@ -77,7 +77,7 @@ function draw() {
   push(); // Save current state of the canvas
   scale(-1, 1); 
   translate(-width, 0);
-  fill(255);
+  fill(HAND_COLOR);
   text(counter, width * 0.5, height * 0.1);
   pop()
 }
@@ -105,8 +105,8 @@ function drawHand() {
     const tY = thumb[1] * scaleY;
 
     fill(FINGER_COLOR);
-    circle(iX, iY, width * 0.02);
-    circle(tX, tY, width * 0.02);
+    circle(iX, iY, width * 0.015);
+    circle(tX, tY, width * 0.015);
 
     // grab if thumb and pointer fingers are close
     const centerX = (iX + tX) / 2;
